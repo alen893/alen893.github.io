@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>光影集 | 摄影师个人作品集</title>
+    <!-- GSAP 动画库 -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <!-- 字体图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 谷歌字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- 自定义样式 -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="#hero">光影集</a>
+            </div>
+            <!-- 桌面端导航 -->
+            <ul class="nav-links desktop-nav">
+                <li><a href="#hero" class="nav-link">首页</a></li>
+                <li><a href="#portfolio" class="nav-link">作品展示</a></li>
+                <li><a href="#about" class="nav-link">关于我</a></li>
+                <li><a href="#contact" class="nav-link">联系方式</a></li>
+            </ul>
+            <!-- 移动端菜单按钮 -->
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+            <!-- 移动端导航 -->
+            <ul class="nav-links mobile-nav">
+                <li><a href="#hero" class="nav-link">首页</a></li>
+                <li><a href="#portfolio" class="nav-link">作品展示</a></li>
+                <li><a href="#about" class="nav-link">关于我</a></li>
+                <li><a href="#contact" class="nav-link">联系方式</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero区域 -->
+    <section id="hero" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">施成谋</h1>
+                <p class="hero-subtitle">摄影师 & 热门流量短视频创作者</p>
+                <a href="#portfolio" class="btn primary-btn">作品观看</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 作品展示区 -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <h2 class="section-title">摄影作品</h2>
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all">全部</button>
+                <button class="filter-btn" data-filter="commercial">热门短视频</button>
+                <button class="filter-btn" data-filter="documentary">大型纪录宣传片</button>
+                <button class="filter-btn" data-filter="landscape">活动宣传片</button>
+                <button class="filter-btn" data-filter="portrait">人像写真</button>
+            </div>
+            <div class="portfolio-grid">
+                <!-- 热门短视频 -->
+                <div class="portfolio-item" data-category="commercial">
+                    <div class="portfolio-img-wrapper">
+                        <img src="https://picsum.photos/id/26/800/600" alt="商业产品摄影" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <div class="overlay-content">
+                                <h3>国际比赛</h3>
+                                <p>极限挑战纪录视频呈现</p>
+                                <a href="project-detail.html" class="view-details">查看详情</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3 class="portfolio-title">非遗传承</h3>
+                        <p class="portfolio-category">纪录心声</p>
+                    </div>
+                </div>
+
+                <!-- 人文纪实作品 -->
+                <div class="portfolio-item" data-category="documentary">
+                    <div class="portfolio-img-wrapper">
+                        <img src="https://picsum.photos/id/42/800/600" alt="城市烟火" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <div class="overlay-content">
+                                <h3>城市烟火</h3>
+                                <p>街头人文纪实系列</p>
+                                <a href="project-detail.html" class="view-details">查看详情</a>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="portfolio-info">
+                        <h3 class="portfolio-title">城市烟火</h3>
+                        <p class="portfolio-category">人文纪实</p>
+                    </div>
+                </div>
+
+                <!-- 自然风光作品 -->
+                <div class="portfolio-item" data-category="landscape">
+                    <div class="portfolio-img-wrapper">
+                        <img src="https://picsum.photos/id/15/800/600" alt="山川湖海" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <div class="overlay-content">
+                                <h3>山川湖海</h3>
+                                <p>自然风景摄影系列</p>
+                                <a href="project-detail.html" class="view-details">查看详情</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3 class="portfolio-title">山川湖海</h3>
+                        <p class="portfolio-category">自然风光</p>
+                    </div>
+                </div>
+
+                <!-- 人像写真作品 -->
+                <div class="portfolio-item" data-category="portrait">
+                    <div class="portfolio-img-wrapper">
+                        <img src="https://picsum.photos/id/64/800/600" alt="情绪人像" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <div class="overlay-content">
+                                <h3>情绪人像</h3>
+                                <p>人像写真系列</p>
+                                <a href="project-detail.html" class="view-details">查看详情</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3 class="portfolio-title">情绪人像</h3>
+                        <p class="portfolio-category">人像写真</p>
+                    </div>
+                </div>
+
+                <!-- 商业摄影作品 -->
+                <div class="portfolio-item" data-category="commercial">
+                    <div class="portfolio-img-wrapper">
+                        <img src="https://picsum.photos/id/28/800/600" alt="餐饮品牌视觉" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <div class="overlay-content">
+                                <h3>餐饮品牌视觉</h3>
+                                <p>美食商业摄影</p>
+                                <a href="project-detail.html" class="view-details">查看详情</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3 class="portfolio-title">餐饮品牌视觉</h3>
+                        <p class="portfolio-category">商业摄影</p>
+                    </div>
+                </div>
+
+                <!-- 自然风光作品 -->
+                <div class="portfolio-item" data-category="landscape">
+                    <div class="portfolio-img-wrapper">
+                        <img src="https://picsum.photos/id/18/800/600" alt="海岸线" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <div class="overlay-content">
+                                <h3>海岸线</h3>
+                                <p>海边风光摄影</p>
+                                <a href="project-detail.html" class="view-details">查看详情</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3 class="portfolio-title">海岸线</h3>
+                        <p class="portfolio-category">自然风光</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于我区域 -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">关于我</h2>
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="https://picsum.photos/id/1005/400/400" alt="摄影师头像" loading="lazy">
+                </div>
+                <div class="about-text">
+                    <h3>施成谋</h3>
+                    <p>拥有5年专业摄影经验，专注于商业摄影、短视频拍摄与宣传纪录片拍摄。擅长用不同视频模式表达情绪与传奇故事，作品曾多次获得抖音过亿流量、视频号10W+点赞等，合作过数十次国际赛事及品牌合作。</p>
+                    
+                    <!-- 时间线 -->
+                    <div class="timeline">
+                        <h4 class="timeline-title">职业经历</h4>
+                        <div class="timeline-item">
+                            <h5>自由摄影摄像师</h5>
+                            <p>独立承接商业摄影项目，专注IP、品牌创作</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-date">2024 - 至今</span>
+                            <h5>御用摄影师</h5>
+                            <p>中国扁带第一人-施海林专属摄影师，负责商业项目拍摄，个人IP打造、公司账户运营</p>
+                        </div>
+                        
+                        <h4 class="timeline-title">教育背景</h4>
+                        <div class="timeline-item">
+                            <span class="timeline-date">2019 - 2023</span>
+                            <h5>影视后期制作专业</h5>
+                            <p>广东艺术学院 摄影系</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系方式 -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">联系方式</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>2391682273@qq.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <p>+86 13650615835</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>广州市天河区</p>
+                    </div>
+                    <div class="contact-social">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-weibo"></i></a>
+                        <a href="#"><i class="fab fa-behance"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <input type="text" placeholder="您的姓名" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="您的邮箱" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="您的留言/合作需求" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn primary-btn">发送消息</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 光影集 - 施成谋摄影作品集 | 保留所有权利</p>
+                <div class="footer-nav">
+                    <a href="#hero">首页</a>
+                    <a href="#portfolio">作品</a>
+                    <a href="#about">关于</a>
+                    <a href="#contact">联系</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 脚本文件 -->
+    <script src="script.js"></script>
+</body>
+</html>

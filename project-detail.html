@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商业产品摄影 | 李明摄影作品集</title>
+    <!-- GSAP 动画库 -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <!-- 字体图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 谷歌字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- 自定义样式 -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html#hero">光影集</a>
+            </div>
+            <!-- 桌面端导航 -->
+            <ul class="nav-links desktop-nav">
+                <li><a href="index.html#hero" class="nav-link">首页</a></li>
+                <li><a href="index.html#portfolio" class="nav-link">作品展示</a></li>
+                <li><a href="index.html#about" class="nav-link">关于我</a></li>
+                <li><a href="index.html#contact" class="nav-link">联系方式</a></li>
+            </ul>
+            <!-- 移动端菜单按钮 -->
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+            <!-- 移动端导航 -->
+            <ul class="nav-links mobile-nav">
+                <li><a href="index.html#hero" class="nav-link">首页</a></li>
+                <li><a href="index.html#portfolio" class="nav-link">作品展示</a></li>
+                <li><a href="index.html#about" class="nav-link">关于我</a></li>
+                <li><a href="index.html#contact" class="nav-link">联系方式</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 作品详情区 -->
+    <section class="project-detail">
+        <div class="container">
+            <!-- 作品标题 -->
+            <div class="project-header">
+                <a href="index.html#portfolio" class="back-btn"><i class="fas fa-arrow-left"></i> 返回作品列表</a>
+                <h1 class="project-title">商业产品摄影 - 高端腕表品牌视觉呈现</h1>
+                <div class="project-meta">
+                    <span class="project-category">商业摄影</span>
+                    <span class="project-date">2023.08</span>
+                </div>
+            </div>
+
+            <!-- 作品主视觉 -->
+            <div class="project-main-img">
+                <img src="https://picsum.photos/id/26/1200/800" alt="高端腕表摄影" loading="lazy">
+            </div>
+
+            <!-- 作品详情内容 -->
+            <div class="project-content">
+                <div class="project-description">
+                    <h2>项目概述</h2>
+                    <p>本次拍摄为瑞士高端腕表品牌2023秋冬系列新品视觉呈现，旨在通过光影塑造腕表的精致工艺与奢华质感，突出产品的细节与设计美学。</p>
+                    
+                    <h2>创作思路</h2>
+                    <p>采用极简的布光方式，以侧逆光勾勒腕表的金属质感，柔光正面补光保留表盘细节。背景选用深色哑光材质，避免反光干扰，让视觉焦点完全集中在产品本身。拍摄过程中注重不同角度的呈现，既展示产品的整体造型，也捕捉机芯、表盘纹理等细节之美。</p>
+                    
+                    <h2>技术参数</h2>
+                    <ul class="tech-specs">
+                        <li>相机：Sony A7R V</li>
+                        <li>镜头：FE 100mm F2.8 STF GM OSS</li>
+                        <li>光圈：f/8 - f/11</li>
+                        <li>快门：1/125s</li>
+                        <li>布光：主光+辅光+轮廓光</li>
+                    </ul>
+                </div>
+
+                <!-- 作品图集 -->
+                <div class="project-gallery">
+                    <h2>作品图集</h2>
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="https://picsum.photos/id/26/800/800" alt="腕表细节1" loading="lazy">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://picsum.photos/id/96/800/800" alt="腕表细节2" loading="lazy">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://picsum.photos/id/68/800/800" alt="腕表场景图" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 相关作品 -->
+                <div class="related-projects">
+                    <h2>相关作品</h2>
+                    <div class="related-grid">
+                        <div class="related-item">
+                            <img src="https://picsum.photos/id/28/600/400" alt="餐饮品牌视觉" loading="lazy">
+                            <h3>餐饮品牌视觉</h3>
+                            <a href="project-detail.html" class="view-details">查看详情</a>
+                        </div>
+                        <div class="related-item">
+                            <img src="https://picsum.photos/id/42/600/400" alt="城市烟火" loading="lazy">
+                            <h3>城市烟火</h3>
+                            <a href="project-detail.html" class="view-details">查看详情</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 光影集 - 李明摄影作品集 | 保留所有权利</p>
+                <div class="footer-nav">
+                    <a href="index.html#hero">首页</a>
+                    <a href="index.html#portfolio">作品</a>
+                    <a href="index.html#about">关于</a>
+                    <a href="index.html#contact">联系</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 脚本文件 -->
+    <script src="script.js"></script>
+</body>
+</html>
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-close" id="lightboxClose">&times;</div>
+  <img class="lightbox-img" id="lightboxImg">
+</div>

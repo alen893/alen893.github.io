@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="施成谋 | 摄影师个人作品集 - 专注商业摄影、短视频拍摄、宣传纪录片拍摄">
+    <meta name="keywords" content="摄影,短视频,纪录片,人像写真,商业摄影,施成谋">
+    <title>光影集 | 施成谋 - 摄影师个人作品集</title>
+    <!-- GSAP 动画库 -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <!-- 字体图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 谷歌字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- 自定义样式 -->
+    <link rel="stylesheet" href="style.css">
+    <!-- 预加载关键资源 -->
+    <link rel="preload" as="video" href="images/hero-video.mp4" type="video/mp4">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar" aria-label="主导航">
+        <div class="container">
+            <div class="logo">
+                <a href="#hero" aria-label="返回首页">光影集</a>
+            </div>
+            <!-- 桌面端导航 -->
+            <ul class="nav-links desktop-nav" role="menubar">
+                <li role="none"><a href="#hero" class="nav-link" role="menuitem" aria-current="page">首页</a></li>
+                <li role="none"><a href="#portfolio" class="nav-link" role="menuitem">作品展示</a></li>
+                <li role="none"><a href="#about" class="nav-link" role="menuitem">关于我</a></li>
+                <li role="none"><a href="#contact" class="nav-link" role="menuitem">联系方式</a></li>
+            </ul>
+            <!-- 移动端菜单按钮 -->
+            <div class="mobile-menu-btn" aria-expanded="false" aria-controls="mobile-nav" aria-label="切换移动端菜单">
+                <i class="fas fa-bars"></i>
+            </div>
+            <!-- 移动端导航 -->
+            <ul class="nav-links mobile-nav" id="mobile-nav" role="menubar" hidden>
+                <li role="none"><a href="#hero" class="nav-link" role="menuitem">首页</a></li>
+                <li role="none"><a href="#portfolio" class="nav-link" role="menuitem">作品展示</a></li>
+                <li role="none"><a href="#about" class="nav-link" role="menuitem">关于我</a></li>
+                <li role="none"><a href="#contact" class="nav-link" role="menuitem">联系方式</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero区域 -->
+    <section id="hero" class="hero">
+        <div class="hero-video-wrapper">
+            <video 
+                autoplay 
+                muted 
+                loop 
+                playsinline 
+                class="hero-video"
+                poster="images/hero-video-placeholder.jpg" <!-- 视频封面 -->
+                aria-label="摄影师作品展示背景视频"
+            >
+                <source src="images/hero-video.mp4" type="video/mp4">
+                <!-- 视频降级方案 -->
+                <img src="images/hero-video-placeholder.jpg" alt="光影集摄影作品展示" class="hero-video-fallback">
+            </video>
+        </div>
+
+        <div class="container hero-content">
+            <h1 class="hero-title">施成谋</h1>
+            <p class="hero-subtitle">摄影师 / 影视后期｜短视频制作</p>
+            <a href="#portfolio" class="btn primary-btn" aria-label="查看施成谋的摄影作品">观看作品</a>
+        </div>
+    </section>
+
+    <!-- 作品展示区（已删除红圈内容） -->
+    <section id="portfolio" class="portfolio" aria-labelledby="portfolio-title">
+        <div class="container">
+            <h2 class="section-title" id="portfolio-title">摄影作品</h2>
+            <div class="portfolio-filters" role="group" aria-label="作品分类筛选">
+                <button class="filter-btn active" data-filter="all" aria-pressed="true">全部</button>
+                <button class="filter-btn" data-filter="commercial" aria-pressed="false">国际赛宣传</button>
+                <button class="filter-btn" data-filter="documentary" aria-pressed="false">吉尼斯世界纪录</button>
+                <button class="filter-btn" data-filter="landscape" aria-pressed="false">非遗传承</button>
+                <button class="filter-btn" data-filter="portrait" aria-pressed="false">大型</button>
+            </div>
+            <div class="portfolio-grid" aria-label="摄影作品列表">
+                <!-- 作品1 - 国际赛宣传 -->
+                <div class="portfolio-item" data-category="commercial">
+                    <div class="portfolio-img-wrapper">
+                        <img 
+                            src="images/work-01.jpg" 
+                            alt="大型国际比赛项目 - 比赛活动引流短视频" 
+                            loading="lazy"
+                            width="800"
+                            height="600"
+                        >
+                        <div class="portfolio-overlay">
+                            <div class="overlay-content">
+                                <h3>大型国际比赛项目</h3>
+                                <p>比赛活动引流</p>
+                                <a href="project-detail.html" class="view-details" aria-label="查看大型国际比赛项目详情">查看详情</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3 class="portfolio-title">国际赛宣传</h3>
+                        <p class="portfolio-category">短视频引流</p>
+                    </div>
+                </div>
+
+                <!-- 作品2 - 吉尼斯世界纪录 -->
+                <div class="portfolio-item" data-category="documentary">
+                    <div class="portfolio-img-wrapper">
+                        <img 
+                            src="images/work-02.jpg" 
+                            alt="吉尼斯纪录 - 极限挑战吉尼斯系列纪录片" 
+                            loading="lazy"
+                            width="800"
+                            height="600"
+                        >
+                        <div class="portfolio-overlay">
+                            <div class="overlay-content">
+                                <h3>吉尼斯纪录</h3>
+                                <p>极限挑战吉尼斯系列</p>
+                                <a href="project-detail.html" class="view-details" aria-label="查看吉尼斯纪录项目详情">查看详情</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3 class="portfolio-title">吉尼斯世界纪录</h3>
+                        <p class="portfolio-category">纪实拍摄/引流</p>
+                    </div>
+                </div>
+
+                <!-- 作品3 - 非遗传承 -->
+                <div class="portfolio-item" data-category="landscape">
+                    <div class="portfolio-img-wrapper">
+                        <img src="images/work-03.jpg" alt="非遗传承 - 中华传统文化创新" loading="lazy" width="800" height="600">
+                        <div class="portfolio-overlay">
+                            <div class="overlay-content">
+                                <h3>非遗传承</h3>
+                                <p>中华传统文化创新</p>
+                                <a href="project-detail.html" class="view-details">查看详情</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3 class="portfolio-title">非遗传承</h3>
+                        <p class="portfolio-category">中华传统文化创新</p>
+                    </div>
+                </div>
+
+                <!-- 作品4 - 极限挑战 -->
+                <div class="portfolio-item" data-category="portrait">
+                    <div class="portfolio-img-wrapper">
+                        <img src="images/work-04.jpg" alt="极限挑战 - 纪录自然与勇气" loading="lazy" width="800" height="600">
+                        <div class="portfolio-overlay">
+                            <div class="overlay-content">
+                                <h3>大型挑战</h3>
+                                <p>极限挑战</p>
+                                <a href="project-detail.html" class="view-details">查看详情</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3 class="portfolio-title">极限挑战</h3>
+                        <p class="portfolio-category">纪录自然与勇气</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于我区域 -->
+    <section id="about" class="about" aria-labelledby="about-title">
+        <div class="container">
+            <h2 class="section-title" id="about-title">关于我</h2>
+            <div class="about-content">
+                <div class="about-img">
+                    <img 
+                        src="images/avatar.JPG" 
+                        alt="施成谋 - 摄影师头像" 
+                        loading="lazy"
+                        width="400"
+                        height="400"
+                        aria-label="施成谋个人照片"
+                    >
+                </div>
+                <div class="about-text">
+                    <h3>施成谋</h3>
+                    <p>拥有5年专业摄影经验，专注于商业摄影、短视频拍摄与宣传纪录片拍摄。擅长用不同视频模式表达情绪与传奇故事，作品曾多次获得抖音过亿流量、视频号10W+点赞等，合作过数十次国际赛事及品牌合作。</p>
+                    
+                    <!-- 时间线 -->
+                    <div class="timeline">
+                        <h4 class="timeline-title">职业经历</h4>
+                        <div class="timeline-item">
+                            <span class="timeline-date">2024 - 至今</span>
+                            <h5>御用摄影师</h5>
+                            <p>中国扁带第一人-施海林专属摄影师，负责商业项目拍摄，个人IP打造、公司账户运营</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>自由摄影摄像师</h5>
+                            <p>独立承接商业摄影项目，专注IP、品牌创作</p>
+                        </div>
+                        
+                        <h4 class="timeline-title">教育背景</h4>
+                        <div class="timeline-item">
+                            <span class="timeline-date">2019 - 2023</span>
+                            <h5>影视后期制作专业</h5>
+                            <p>广东艺术学院 摄影系</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系方式 -->
+    <section id="contact" class="contact" aria-labelledby="contact-title">
+        <div class="container">
+            <h2 class="section-title" id="contact-title">联系方式</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope" aria-hidden="true"></i>
+                        <p><a href="mailto:2391682273@qq.com" aria-label="发送邮件至2391682273@qq.com">2391682273@qq.com</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone" aria-hidden="true"></i>
+                        <p><a href="tel:+8613650615835" aria-label="拨打手机号13650615835">+86 13650615835</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                        <p>广州市天河区</p>
+                    </div>
+                    <div class="contact-social">
+                        <a href="#" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="微博" target="_blank" rel="noopener noreferrer"><i class="fab fa-weibo"></i></a>
+                        <a href="#" aria-label="Behance" target="_blank" rel="noopener noreferrer"><i class="fab fa-behance"></i></a>
+                        <a href="#" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contact-form" novalidate>
+                        <div class="form-group">
+                            <input 
+                                type="text" 
+                                name="name" 
+                                placeholder="您的姓名" 
+                                required
+                                aria-required="true"
+                            >
+                            <div class="error-message" aria-live="polite"></div>
+                        </div>
+                        <div class="form-group">
+                            <input 
+                                type="email" 
+                                name="email" 
+                                placeholder="您的邮箱" 
+                                required
+                                aria-required="true"
+                            >
+                            <div class="error-message" aria-live="polite"></div>
+                        </div>
+                        <div class="form-group">
+                            <textarea 
+                                name="message" 
+                                placeholder="您的留言/合作需求" 
+                                rows="5" 
+                                required
+                                aria-required="true"
+                            ></textarea>
+                            <div class="error-message" aria-live="polite"></div>
+                        </div>
+                        <button type="submit" class="btn primary-btn" aria-label="发送留言">
+                            <span class="btn-text">发送消息</span>
+                            <span class="btn-loading" hidden><i class="fas fa-spinner fa-spin"></i> 发送中...</span>
+                        </button>
+                        <div class="form-feedback success" aria-live="polite" hidden>留言发送成功！我会尽快回复您。</div>
+                        <div class="form-feedback error" aria-live="polite" hidden>发送失败，请稍后重试。</div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 光影集 - 施成谋摄影作品集 | 保留所有权利</p>
+                <div class="footer-nav">
+                    <a href="#hero" aria-label="返回首页">首页</a>
+                    <a href="#portfolio" aria-label="查看作品">作品</a>
+                    <a href="#about" aria-label="关于施成谋">关于</a>
+                    <a href="#contact" aria-label="联系施成谋">联系</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 回到顶部按钮 -->
+    <button id="back-to-top" class="back-to-top" aria-label="回到顶部" hidden>
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- 脚本文件 -->
+    <script src="script.js"></script>
+    <script>
+        // 基础交互逻辑
+        document.addEventListener('DOMContentLoaded', function() {
+            // 移动端菜单切换
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const mobileNav = document.getElementById('mobile-nav');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+                mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
+                mobileNav.hidden = isExpanded;
+                mobileMenuBtn.querySelector('i').classList.toggle('fa-bars', isExpanded);
+                mobileMenuBtn.querySelector('i').classList.toggle('fa-times', !isExpanded);
+            });
+
+            // 作品筛选功能
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+            
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // 更新按钮状态
+                    filterBtns.forEach(b => {
+                        b.classList.remove('active');
+                        b.setAttribute('aria-pressed', 'false');
+                    });
+                    this.classList.add('active');
+                    this.setAttribute('aria-pressed', 'true');
+                    
+                    // 筛选作品
+                    const filter = this.getAttribute('data-filter');
+                    portfolioItems.forEach(item => {
+                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                            item.style.display = 'block';
+                            item.setAttribute('aria-hidden', 'false');
+                        } else {
+                            item.style.display = 'none';
+                            item.setAttribute('aria-hidden', 'true');
+                        }
+                    });
+                });
+            });
+
+            // 回到顶部按钮
+            const backToTopBtn = document.getElementById('back-to-top');
+            
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 300) {
+                    backToTopBtn.hidden = false;
+                } else {
+                    backToTopBtn.hidden = true;
+                }
+            });
+            
+            backToTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // 表单提交处理
+            const contactForm = document.getElementById('contact-form');
+            
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const submitBtn = contactForm.querySelector('button[type="submit"]');
+                const btnText = submitBtn.querySelector('.btn-text');
+                const btnLoading = submitBtn.querySelector('.btn-loading');
+                const successMsg = contactForm.querySelector('.form-feedback.success');
+                const errorMsg = contactForm.querySelector('.form-feedback.error');
+                
+                // 显示加载状态
+                btnText.hidden = true;
+                btnLoading.hidden = false;
+                submitBtn.disabled = true;
+                
+                // 模拟表单提交
+                setTimeout(function() {
+                    // 重置状态
+                    btnText.hidden = false;
+                    btnLoading.hidden = true;
+                    submitBtn.disabled = false;
+                    
+                    // 显示成功消息
+                    successMsg.hidden = false;
+                    contactForm.reset();
+                    
+                    // 3秒后隐藏成功消息
+                    setTimeout(() => {
+                        successMsg.hidden = true;
+                    }, 3000);
+                }, 1500);
+            });
+
+            // 平滑滚动
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        // 关闭移动端菜单（如果打开）
+                        if (!mobileNav.hidden) {
+                            mobileMenuBtn.click();
+                        }
+                        
+                        // 平滑滚动到目标位置
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                        
+                        // 更新导航选中状态
+                        document.querySelectorAll('.nav-link').forEach(link => {
+                            link.setAttribute('aria-current', link.getAttribute('href') === targetId ? 'page' : 'false');
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>

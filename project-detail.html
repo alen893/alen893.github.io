@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商业产品摄影 | 摄影作品集</title>
+    <!-- GSAP 动画库 -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <!-- 字体图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 谷歌字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- 自定义样式 -->
+    <style>
+        /* 全局重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* 基础样式 */
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* 导航栏样式 */
+        .navbar {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+            padding: 15px 0;
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo a {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #222;
+        }
+
+        .desktop-nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 250px;
+            height: 100vh;
+            background-color: #fff;
+            flex-direction: column;
+            padding: 80px 30px;
+            box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            z-index: 998;
+        }
+
+        .mobile-nav.active {
+            transform: translateX(0);
+        }
+
+        .mobile-nav li {
+            margin: 20px 0;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: #555;
+        }
+
+        .nav-link:hover {
+            color: #007bff;
+        }
+
+        .mobile-menu-btn {
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: none;
+        }
+
+        /* 作品详情区样式 */
+        .project-detail {
+            padding: 120px 0 80px;
+        }
+
+        .project-header {
+            margin-bottom: 40px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #007bff;
+            font-weight: 500;
+        }
+
+        .back-btn:hover {
+            text-decoration: underline;
+        }
+
+        .project-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #222;
+        }
+
+        .project-meta {
+            display: flex;
+            gap: 20px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        .project-main-img {
+            margin-bottom: 60px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .project-content {
+            display: grid;
+            gap: 60px;
+        }
+
+        .project-description h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #222;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .project-description p {
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .tech-specs {
+            display: grid;
+            gap: 10px;
+            padding-left: 20px;
+            list-style: disc;
+            color: #555;
+        }
+
+        /* 作品图集样式 */
+        .project-gallery h2 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: #222;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+
+        /* 视频展示样式 */
+        .project-video h2 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: #222;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16/9;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .project-video-player {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* 相关作品样式 */
+        .related-projects h2 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: #222;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .related-item {
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .related-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .related-item h3 {
+            padding: 15px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #222;
+        }
+
+        .related-item p {
+            padding: 0 15px 20px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        /* 页脚样式 */
+        .footer {
+            background-color: #222;
+            color: #fff;
+            padding: 40px 0;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .footer-nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-nav a {
+            color: #ddd;
+        }
+
+        .footer-nav a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        /* 图片灯箱样式 */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            font-size: 2rem;
+            color: #fff;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .lightbox-close:hover {
+            transform: scale(1.1);
+        }
+
+        .lightbox-img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border-radius: 4px;
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .desktop-nav {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .project-title {
+                font-size: 2rem;
+            }
+
+            .project-description h2,
+            .project-gallery h2,
+            .project-video h2,
+            .related-projects h2 {
+                font-size: 1.5rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html#hero">光影集</a>
+            </div>
+            <!-- 桌面端导航 -->
+            <ul class="nav-links desktop-nav">
+                <li><a href="index.html#hero" class="nav-link">首页</a></li>
+                <li><a href="index.html#portfolio" class="nav-link">作品展示</a></li>
+                <li><a href="index.html#about" class="nav-link">关于我</a></li>
+                <li><a href="index.html#contact" class="nav-link">联系方式</a></li>
+            </ul>
+            <!-- 移动端菜单按钮 -->
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+            <!-- 移动端导航 -->
+            <ul class="nav-links mobile-nav">
+                <li><a href="index.html#hero" class="nav-link">首页</a></li>
+                <li><a href="index.html#portfolio" class="nav-link">作品展示</a></li>
+                <li><a href="index.html#about" class="nav-link">关于我</a></li>
+                <li><a href="index.html#contact" class="nav-link">联系方式</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 作品详情区 -->
+    <section class="project-detail">
+        <div class="container">
+            <!-- 作品标题 -->
+            <div class="project-header">
+                <a href="index.html#portfolio" class="back-btn"><i class="fas fa-arrow-left"></i> 返回作品列表</a>
+                <h1 class="project-title">国际赛事宣传拍摄</h1>
+                <div class="project-meta">
+                    <span class="project-category">商业引流拍摄</span>
+                    <span class="project-date">2025.09</span>
+                </div>
+            </div>
+
+            <!-- 作品主视觉 -->
+            <div class="project-main-img">
+                <img src="images/detail-main.jpg" alt="国际赛事摄影" loading="lazy">
+            </div>
+
+            <!-- 作品详情内容 --> 
+            <div class="project-content">
+                <div class="project-description">
+                    <h2>项目概述</h2>
+                    <p>本次拍摄为高空扁带国际挑战赛——黄河大梯子崖赛区，多国顶级高空扁带运动员齐聚交流竞赛</p>
+                    
+                    <h2>创作思路</h2>
+                    <p>在国际赛到半决赛时，包括中国选手在内的三个不同国家进行激烈的竞争，场面十分轰动紧张，分配几个持不同拍摄设备的同事进行分工拍摄，自己操作无人机拍摄比赛全过程，并特别拍摄终点与观众情绪、鼓励声，还有外国选手助威，最终中国选手极限反超其他选手，为最后后期处理做基础铺垫并加以完善。</p>
+                    
+                    <h2>拍摄设备</h2>
+                    <ul class="tech-specs">
+                        <li>相机：Sony A7M3</li>
+                        <li>镜头：FE 24-105 2.8/F</li>
+                        <li>大疆无人机：御3 pro</li>
+                        <li>影石运动相机：X5全景相机、ace pro2运动相机</li>
+                        <li>大疆pocket3</li>
+                    </ul>
+                </div>
+
+                <!-- 作品图集 -->
+                <div class="project-gallery">
+                    <h2>作品图集</h2>
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="images/detail-01.jpg" alt="比赛选手准备阶段" loading="lazy">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="images/detail-02.jpg" alt="比赛精彩瞬间" loading="lazy">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="images/detail-03.jpg" alt="赛后颁奖环节" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 作品视频展示 -->
+                <div class="project-video">
+                    <h2>作品视频展示</h2>
+                    <div class="video-container">
+                        <video controls poster="images/video-cover.jpg" preload="metadata" class="project-video-player">
+                            <source src="images/project-video.mp4" type="video/mp4">
+                            你的浏览器不支持视频播放，请升级浏览器后重试。
+                        </video>
+                    </div>
+                </div>
+
+                <!-- 相关作品 -->
+                <div class="related-projects">
+                    <h2>相关作品</h2>
+                    <div class="related-grid">
+                        <div class="related-item">
+                            <img src="images/detail-01.jpg" alt="吉尼斯纪录拍摄" loading="lazy">
+                            <h3>吉尼斯纪录</h3>
+                            <p>极限挑战吉尼斯系列</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 光影集 - 摄影作品集 | 保留所有权利</p>
+                <div class="footer-nav">
+                    <a href="index.html#hero">首页</a>
+                    <a href="index.html#portfolio">作品</a>
+                    <a href="index.html#about">关于</a>
+                    <a href="index.html#contact">联系</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 图片灯箱 -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-close" id="lightboxClose">&times;</div>
+        <img class="lightbox-img" id="lightboxImg">
+    </div>
+
+    <!-- 脚本文件 -->
+    <script>
+        // 移动端导航菜单切换
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileNav = document.querySelector('.mobile-nav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileNav.classList.toggle('active');
+            // 切换菜单图标
+            const icon = mobileMenuBtn.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        // 关闭移动端导航（点击导航链接后）
+        const mobileNavLinks = mobileNav.querySelectorAll('.nav-link');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.classList.remove('active');
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+
+        // 图片灯箱功能
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxClose = document.getElementById('lightboxClose');
+        const galleryItems = document.querySelectorAll('.gallery-item img');
+
+        // 打开灯箱
+        galleryItems.forEach(img => {
+            img.addEventListener('click', () => {
+                lightbox.classList.add('active');
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt;
+                // 禁止页面滚动
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        // 关闭灯箱
+        const closeLightbox = () => {
+            lightbox.classList.remove('active');
+            // 恢复页面滚动
+            document.body.style.overflow = 'auto';
+        };
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        // ESC键关闭灯箱
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                closeLightbox();
+            }
+        });
+
+        // GSAP 滚动动画
+        gsap.from('.project-header', {
+            opacity: 0,
+            y: 50,
+            duration: 0.8,
+            scrollTrigger: {
+                trigger: '.project-header',
+                start: 'top 80%',
+                toggleActions: 'play none none reverse'
+            }
+        });
+
+        gsap.from('.project-main-img', {
+            opacity: 0,
+            scale: 0.95,
+            duration: 0.8,
+            delay: 0.2,
+            scrollTrigger: {
+                trigger: '.project-main-img',
+                start: 'top 80%',
+                toggleActions: 'play none none reverse'
+            }
+        });
+
+        gsap.from('.project-description, .project-gallery, .project-video, .related-projects', {
+            opacity: 0,
+            y: 30,
+            duration: 0.6,
+            stagger: 0.2,
+            scrollTrigger: {
+                trigger: '.project-content',
+                start: 'top 80%',
+                toggleActions: 'play none none reverse'
+            }
+        });
+
+        // 图片懒加载增强（可选）
+        document.addEventListener('DOMContentLoaded', () => {
+            const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+            if ('IntersectionObserver' in window) {
+                const imageObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const image = entry.target;
+                            image.classList.add('fade-in');
+                            observer.unobserve(image);
+                        }
+                    });
+                });
+
+                lazyImages.forEach(img => {
+                    imageObserver.observe(img);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
